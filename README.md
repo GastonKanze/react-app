@@ -6,7 +6,7 @@ This repository is used for a CICD jenkins process to scan a react code and depl
 - Create a virtual machine and install Jenkins, Docker, and kubectl on it. 
 - Crate a SonarQube container with SonarQube application. (Dashboard):  docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube 
 - Create a Jenkins pipeline to:
-  - Pull the React code from git repository. 
+  - Pull the React code from git repository. https://github.com/aditya-sridhar/simple-reactjs-app.
   - Create a SonarQube scanner container to scan the code and check quality and security.
   - Create an image from a Dockerfile. 
   - Upload the image to Docker Hub repository. https://hub.docker.com/u/gastonkanze
