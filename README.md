@@ -2,18 +2,20 @@
 
 This repository is used for a CICD jenkins process to scan a react code and deploy an app in a K8S cluster. 
 
+## About the process:
+- Create a virtual machine and install Jenkins, Docker, and kubectl on it. 
+- Crate a SonarQube container with SonarQube application. (Dashboard):  docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube 
+- Create a Jenkins pipeline to:
+  - Pull the React code from git repository. 
+  - Create a SonarQube scanner container to scan the code and check quality and security.
+  - Create an image from a Dockerfile. 
+  - Upload the image to Docker Hub repository. https://hub.docker.com/u/gastonkanze
+  - Create a deployment and deploy the image created on K8S. If you want to work locally with K8S you can use microk8s.
+
 ## Files:
 - Jenkinsfile.groovy : File used for the jenkins pipeline , in this file you can find all the process. 
 - Dockerfile : File used to build the React image
 - simple-react-app-service.yml : Yaml file with the infrastructure definition to deploy in a K8S cluster. 
-
-## Some considerations: 
-You will need:
-  - Jenkins installed
-  - Docker
-  - Kubectl
-  - K8S cluster, if you want to work locally , you can use microk8s
-  - To run the scan with SonarQube you will need the application running:  docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
 
 ## Screenshots: 
 
@@ -33,7 +35,7 @@ You will need:
 
 ![image](https://user-images.githubusercontent.com/12170121/110134093-b69a3e80-7dd5-11eb-99cf-7868abafe39b.png)
 
-###### Dockerhub:
+###### Dockerhub: 
 
 ![image](https://user-images.githubusercontent.com/12170121/110134553-30322c80-7dd6-11eb-8f34-b4aec506e3de.png)
 
