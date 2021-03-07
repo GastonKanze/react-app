@@ -6,11 +6,11 @@ This repository is used for a CICD jenkins process to scan a react code and depl
 - Create a virtual machine and install Jenkins, Docker, and kubectl on it. 
 - Crate a SonarQube container with SonarQube application. (Dashboard):  docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube 
 - Create a Jenkins pipeline to:
-  - Pull the React code from git repository. https://github.com/aditya-sridhar/simple-reactjs-app.
+  - Pull the React code from git [Repository](https://github.com/aditya-sridhar/simple-reactjs-app).
   - Create a SonarQube scanner container to scan the code and check quality and security.
   - Create an image from a Dockerfile. 
-  - Upload the image to Docker Hub repository. https://hub.docker.com/u/gastonkanze
-  - Create a deployment and deploy the image created on K8S. If you want to work locally with K8S you can use microk8s.
+  - Upload the image to [Dockerhub](https://hub.docker.com/u/gastonkanze) repository.
+  - Create a deployment and deploy the image created on K8S. If you want to work locally with K8S you can use [Microk8s](https://microk8s.io/docs).
 
 ## Files:
 - Jenkinsfile.groovy : File used for the jenkins pipeline , in this file you can find all the process. 
@@ -44,3 +44,18 @@ This repository is used for a CICD jenkins process to scan a react code and depl
 
 ![image](https://user-images.githubusercontent.com/12170121/110133878-7a66de00-7dd5-11eb-9e6f-a8f671988c3a.png)
 
+## How to install Jenkins in a server?:
+- Update packages: sudo yum update
+- Add Jenkins repository: sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+- Import a key file from Jenkins-CI to enable installation from the package: sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+- Install Jenkins: sudo yum install jenkins -y
+- Update Java: sudo yum install java-1.8.0
+- Switch to Java: sudo alternatives --config java
+- Start Jenkins as a service: sudo service jenkins start
+- Get Admin Password: sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+## How to install Docker in a server?:
+- [Documentation](https://docs.docker.com/engine/install/ubuntu/)
+
+## How to install kubectl in a server?:
+- [Documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
