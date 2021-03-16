@@ -13,7 +13,7 @@ This repository is used for a CICD jenkins process to scan a react code and depl
   - Create a deployment and deploy the image created on K8S. If you want to work locally with K8S you can use [Microk8s](https://microk8s.io/docs).
 
 ## Files:
-- Jenkinsfile.groovy : File used for the jenkins pipeline , in this file you can find all the process. 
+- Jenkinsfile : File used for the jenkins pipeline , in this file you can find all the process. 
 - Dockerfile : File used to build the React image
 - simple-react-app-service.yml : Yaml file with the infrastructure definition to deploy in a K8S cluster. 
 
